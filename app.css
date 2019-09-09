@@ -1,0 +1,43 @@
+body { 
+    font-family: sans-serif; 
+    background:#000;
+}
+.scorelabel{
+    
+    font-size: 1rem; 
+    color: #fff;
+}
+.score{
+    margin-bottom: 50px;
+    margin:0 auto;
+    overflow: auto;
+    width: 250px;
+    border:6px solid #fff;
+    border-radius: 25px;
+    font-size: 2rem; 
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+}
+.board {
+    margin-top: 50px;
+    margin:0 auto;
+    width: 306px; 
+    background: #ffffff;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 100px);
+    grid-gap: 6px;
+    display: grid;
+    cursor: pointer;
+}
+.box {
+    background: #000; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    font-size: 2rem; 
+    color: #fff;
+}
+.box:hover {
+    background: #303030;
+}
