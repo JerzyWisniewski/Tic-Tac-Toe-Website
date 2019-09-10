@@ -24,6 +24,23 @@ function pick(event) {
     event.target.classList.add(turn);
     board[row][column] = turn;
     round++;
+    let k = 0;
+    for(let i=0; i<3; i++)
+    {
+        for(let j=0; j<3; j++)
+        {
+           if( board[i][j] != '') {k++;}
+        }
+    }        
+       if(k>=9){
+        for(let i=0; i<3; i++)
+            {
+                for(let j=0; j<3; j++)
+                {
+                    board[i][j] = '';
+                }
+            }           
+        clear(), k=0;}
 
     console.log(check());
 }
@@ -41,30 +58,15 @@ function check() {
             winner = 'Winner: Player 1';
             player1scorevalue++;
             document.getElementById("player1score").innerHTML = player1scorevalue;  
-            clear(); 
-            for(let i=0; i<3; i++)
-            {
-                for(let j=0; j<3; j++)
-                {
-                    board[i][j] = '';
-                }
-            }          
-            document.getElementsByClassName(".box").innerHTML = "";
+            clear();        
         }
         if (combination.every(index => moves[PLAYER2].indexOf(index) > -1)) {
             winner = 'Winner: Player 2';
             player2scorevalue++;
             document.getElementById("player2score").innerHTML = player2scorevalue;
-            clear();
-            for(let i=0; i<3; i++)
-            {
-                for(let j=0; j<3; j++)
-                {
-                    board[i][j] = '';
-                }
-            }        
+            clear();      
         }
-        document.getElementsByClassName(".box").innerHTML = "";
+
     });
 
     return winner;
@@ -77,4 +79,11 @@ function clear() {
       cells[i].classList.remove(PLAYER1);
       cells[i].classList.remove(PLAYER2);
     }
+    for(let i=0; i<3; i++)
+            {
+                for(let j=0; j<3; j++)
+                {
+                    board[i][j] = '';
+                }
+            }        
   }
